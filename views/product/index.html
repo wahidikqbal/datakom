@@ -44,7 +44,9 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Pangkat</th>
                     <th>NRP</th>
+                    <th>Kesatuan</th>
                     <th>Category</th>
                     <th>Serial</th>
                     <th>Stock</th>
@@ -55,10 +57,12 @@
                 {{range .products}}
                 <tr>
                     <td> {{ .Name }} </td>
-                    <td> {{ .Description}}</td>
+                    <td> {{ .Pangkat.Name }} </td>
+                    <td> {{ .Nrp }}</td>
+                    <td> {{ .Kesatuan.Name }} </td>
                     <td> {{ .Category.Name}} </td>
                     <td> {{ .Serialnumber}} </td>
-                    <td> {{ .Stock }} </td>
+                    <td> {{ .Stock.Name }} </td>
                     <td>
                         <a href="/products/edit?id={{ .Id }}" class="btn btn-info text-light">Detail</a>
                         <a href="/products/edit?id={{ .Id }}" class="btn btn-warning text-light">Edit</a>

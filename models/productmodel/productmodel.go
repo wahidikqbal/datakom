@@ -11,7 +11,7 @@ func GetAll() []entities.Product {
 			products.id, 
 			products.name,
 			pangkats.name as pangkat_name,
-			products.nrp
+			products.nrp,
 			kesatuans.name as kesatuan_name,
 			categories.name as category_name,
 			products.serialnumber,
@@ -19,7 +19,10 @@ func GetAll() []entities.Product {
 			products.created_at, 
 			products.updated_at
 		FROM products
+		JOIN pangkats ON products.pangkat_id = pangkats.id
+		JOIN kesatuans ON products.kesatuan_id = kesatuans.id
 		JOIN categories ON products.category_id = categories.id
+		JOIN stocks ON products.stock_id = stocks.id
 	`)
 
 	if err != nil {
@@ -35,12 +38,12 @@ func GetAll() []entities.Product {
 		if err := rows.Scan(
 			&product.Id,
 			&product.Name,
-			&product.Pangkat,
+			&product.Pangkat.Name,
 			&product.Nrp,
-			&product.Kesatuan,
+			&product.Kesatuan.Name,
 			&product.Category.Name,
 			&product.Serialnumber,
-			&product.Stock,
+			&product.Stock.Name,
 			&product.CreatedAt,
 			&product.UpdatedAt,
 		); err != nil {

@@ -25,6 +25,12 @@ func main() {
 	http.HandleFunc("/products", productcontroller.Index)
 	http.HandleFunc("/products/add", productcontroller.Add)
 
+	//3. Pangkat
+
+	//4. Kesatuan
+
+	//5. Stock
+
 	//connect database
 	config.ConnectDB()
 
