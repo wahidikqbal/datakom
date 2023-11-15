@@ -9,13 +9,16 @@ func GetAll() []entities.Product {
 	rows, err := config.DB.Query(`
 		SELECT 
 			products.id, 
-			products.name, 
+			products.name,
+			pangkats.name as pangkat_name,
+			products.nrp
+			kesatuans.name as kesatuan_name,
 			categories.name as category_name,
-			products.stock, 
-			products.description,
 			products.serialnumber,
+			stocks.name as stock_name, 
 			products.created_at, 
-			products.updated_at FROM products
+			products.updated_at
+		FROM products
 		JOIN categories ON products.category_id = categories.id
 	`)
 
@@ -32,10 +35,12 @@ func GetAll() []entities.Product {
 		if err := rows.Scan(
 			&product.Id,
 			&product.Name,
+			&product.Pangkat,
+			&product.Nrp,
+			&product.Kesatuan,
 			&product.Category.Name,
-			&product.Stock,
-			&product.Description,
 			&product.Serialnumber,
+			&product.Stock,
 			&product.CreatedAt,
 			&product.UpdatedAt,
 		); err != nil {
