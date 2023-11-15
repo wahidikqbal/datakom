@@ -9,6 +9,7 @@ import (
 
 var DB *sql.DB
 
+// new database name datakom_db. root:root
 func ConnectDB() {
 	db, err := sql.Open("mysql", "root:root@/datakom_db?parseTime=true")
 	if err != nil {
