@@ -9,8 +9,9 @@ import (
 
 var DB *sql.DB
 
+// database name datakom_db. poop:poop
 func ConnectDB() {
-	db, err := sql.Open("mysql", "poop:poop@/datakom_DB?parseTime=true")
+	db, err := sql.Open("mysql", "poop:poop@/datakom_db?parseTime=true")
 	if err != nil {
 		panic(err)
 	}

@@ -40,30 +40,22 @@
 
 
     <div class="container mt-3">
-        <h2>Kategori Alat Komunikasi</h2>
-        <hr>
-        <a href="/categories/add" class="btn btn-primary">Tambah Kategori</a>
-        <table class="table table-bordered mt-2 text-center">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{range .categories}}
-                <tr>
-                    <td> {{ .Name }} </td>
-                    <td>
-                        <a href="/categories/edit?id={{ .Id }}" class="btn btn-warning text-light">Edit</a>
-                        <a href="/categories/delete?id={{ .Id }}"
-                        class="btn btn-danger text-light" 
-                        onclick="return confirm('Apakah Anda ingin menghapus data Kategori ini?') ">Delete</a>
-                    </td>
-                </tr>
-                {{end}}
-            </tbody>
-        </table>
+        <div class="row d-flex justify-content-center">
+            <div class="col-4">
+                <h2>TAMBAH KETEGORI PANGKAT</h2>
+                <hr>
+                <form action="/pangkats/add" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" autocomplete="off">
+                    </div>
+                    <div class="float-end">
+                        <a href="/pangkats" class="btn btn-secondary">Back</a>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>

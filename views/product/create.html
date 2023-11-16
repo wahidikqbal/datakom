@@ -10,45 +10,57 @@
 
     <!-- Nav Bar start -->
     <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container">
-          <a class="navbar-brand text-light" href="/">DATAKOM</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link active text-light" href="/products">Pengguna</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active text-light" href="/categories">Kategori</a>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li> -->
-            </ul>
-          </div>
+      <div class="container">
+        <a class="navbar-brand text-light" href="/">DATAKOM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active text-light" href="/products">Pengguna</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-light" href="/categories">Kategori</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-light" href="/pangkats">Pangkat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-light" href="/kesatuans">Kesatuan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-light" href="/stocks">Stock</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
     <!-- Nav Bar end -->
 
 
     <div class="container mt-3">
         <div class="row d-flex justify-content-center">
             <div class="col-4">
-                <h2>Add Product</h2>
+                <h2>Tambah Pengguna</h2>
                 <hr>
                 <form action="/products/add" method="POST">
                     <div class="mb-3">
-                        <label class="form-label">Name</label>
+                        <label class="form-label">Nama:</label>
                         <input type="text" class="form-control" name="name" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                      <label for="exampleFormControlSelect1">Jenis Alkom</label>
+                      <label for="exampleFormControlSelect1">Pilih Pangkat:</label>
                         <select class="form-control">
+                          {{ range .pangkats}}
+                          <option>{{ .Name }}</option>
+                          {{ end}}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleFormControlSelect1">Pilih Jenis Alkom:</label>
+                        <select class="form-control">
+                          <!-- <option selected> Pilih Jenis Alkom </option> -->
                           {{ range .categories}}
                           <option>{{ .Name }}</option>
                           {{ end}}
