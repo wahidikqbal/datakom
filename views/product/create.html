@@ -42,15 +42,15 @@
     <div class="container mt-3">
         <div class="row d-flex justify-content-center">
             <div class="col-4">
-                <h2>Add Product</h2>
+                <h2>Tambah Pengguna</h2>
                 <hr>
                 <form action="/products/add" method="POST">
                     <div class="mb-3">
-                        <label class="form-label">Name</label>
+                        <label class="form-label">Nama:</label>
                         <input type="text" class="form-control" name="name" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                      <label for="exampleFormControlSelect1">Pangkat</label>
+                      <label for="exampleFormControlSelect1">Pilih Pangkat:</label>
                         <select class="form-control">
                           {{ range .pangkats}}
                           <option>{{ .Name }}</option>
@@ -58,8 +58,9 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                      <label for="exampleFormControlSelect1">Jenis Alkom</label>
+                      <label for="exampleFormControlSelect1">Pilih Jenis Alkom:</label>
                         <select class="form-control">
+                          <!-- <option selected> Pilih Jenis Alkom </option> -->
                           {{ range .categories}}
                           <option>{{ .Name }}</option>
                           {{ end}}

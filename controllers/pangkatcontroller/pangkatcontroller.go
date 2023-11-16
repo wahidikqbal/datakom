@@ -40,7 +40,7 @@ func Add(w http.ResponseWriter, r *http.Request) {
 		pangkat.UpdatedAt = time.Now()
 
 		if success := pangkatmodel.Create(pangkat); !success {
-			temp, err := template.ParseFiles("/views/pangkat/create.html")
+			temp, err := template.ParseFiles("views/pangkat/create.html")
 			if err != nil {
 				panic(err)
 			}
