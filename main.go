@@ -7,6 +7,7 @@ import (
 	"go-web/config"
 	"go-web/controllers/categorycontroller"
 	"go-web/controllers/homecontroller"
+	"go-web/controllers/pangkatcontroller"
 	"go-web/controllers/productcontroller"
 )
 
@@ -26,6 +27,7 @@ func main() {
 	http.HandleFunc("/products/add", productcontroller.Add)
 
 	//3. Pangkat
+	http.HandleFunc("/pangkats", pangkatcontroller.Index)
 
 	//4. Kesatuan
 
