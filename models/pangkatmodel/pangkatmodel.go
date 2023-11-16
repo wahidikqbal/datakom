@@ -26,3 +26,18 @@ func GetAll() []entities.Pangkat {
 
 	return pangkats
 }
+
+func Create(pangkat entities.Pangkat) bool {
+	result, err := config.DB.Exec(`INSERT INTO pangkats (name, created_at, updated_at)
+	VALUE (?, ?, ?)`, pangkat.Name, pangkat.CreatedAt, pangkat.UpdatedAt)
+	if err != nil {
+		panic(err)
+	}
+
+	lastinsertId, err := result.LastInsertId()
+	if err != nil {
+		panic(err)
+	}
+
+	return lastinsertId > 0
+}

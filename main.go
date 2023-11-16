@@ -28,7 +28,7 @@ func main() {
 
 	//3. Pangkat
 	http.HandleFunc("/pangkats", pangkatcontroller.Index)
-	http.HandleFunc("/pangkats/edit", pangkatcontroller.Add)
+	http.HandleFunc("/pangkats/add", pangkatcontroller.Add)
 
 	//4. Kesatuan
 
