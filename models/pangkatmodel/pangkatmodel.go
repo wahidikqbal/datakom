@@ -41,3 +41,28 @@ func Create(pangkat entities.Pangkat) bool {
 
 	return lastinsertId > 0
 }
+
+func Detail(id int) entities.Pangkat {
+	row := config.DB.QueryRow(`SELECT id, name FROM pangkats WHERE id = ?`, id)
+
+	var pangkat entities.Pangkat
+	if err := row.Scan(&pangkat.Id, &pangkat.Name); err != nil {
+		panic(err)
+	}
+
+	return pangkat
+}
+
+func Update(id int, pangkat entities.Pangkat) bool {
+	query, err := config.DB.Exec(`UPDATE pangkats SET name = ?, updated_at = ? WHERE id = ?`, pangkat.Name, pangkat.UpdatedAt, id)
+	if err != nil {
+		panic(err)
+	}
+
+	result, err := query.RowsAffected()
+	if err != nil {
+		panic(err)
+	}
+
+	return result > 0
+}
