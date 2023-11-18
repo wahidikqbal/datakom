@@ -66,3 +66,8 @@ func Update(id int, pangkat entities.Pangkat) bool {
 
 	return result > 0
 }
+
+func Delete(id int) error {
+	_, err := config.DB.Exec(`DELETE FROM pangkats WHERE id = ?`, id)
+	return err
+}
