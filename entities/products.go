@@ -7,7 +7,7 @@ type Product struct {
 	Name         string
 	Pangkat      Pangkat
 	Nrp          string
-	Kesatuan     Kesatuan
+	Unit         Unit
 	Category     Category
 	Serialnumber string
 	Stock        Stock

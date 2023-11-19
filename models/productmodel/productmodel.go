@@ -12,7 +12,7 @@ func GetAll() []entities.Product {
 			products.name,
 			pangkats.name as pangkat_name,
 			products.nrp,
-			kesatuans.name as kesatuan_name,
+			units.name as unit_name,
 			categories.name as category_name,
 			products.serialnumber,
 			stocks.name as stock_name, 
@@ -20,7 +20,7 @@ func GetAll() []entities.Product {
 			products.updated_at
 		FROM products
 		JOIN pangkats ON products.pangkat_id = pangkats.id
-		JOIN kesatuans ON products.kesatuan_id = kesatuans.id
+		JOIN units ON products.unit_id = units.id
 		JOIN categories ON products.category_id = categories.id
 		JOIN stocks ON products.stock_id = stocks.id
 	`)
@@ -40,7 +40,7 @@ func GetAll() []entities.Product {
 			&product.Name,
 			&product.Pangkat.Name,
 			&product.Nrp,
-			&product.Kesatuan.Name,
+			&product.Unit.Name,
 			&product.Category.Name,
 			&product.Serialnumber,
 			&product.Stock.Name,
