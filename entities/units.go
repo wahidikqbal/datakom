@@ -2,7 +2,7 @@ package entities
 
 import "time"
 
-type Kesatuan struct {
+type Unit struct {
 	Id        uint
 	Name      string
 	CreatedAt time.Time
