@@ -16,6 +16,7 @@ func GetAll() []entities.Unit {
 	var units []entities.Unit
 
 	for rows.Next() {
+
 		var unit entities.Unit
 
 		if err := rows.Scan(&unit.Id, &unit.Name, &unit.CreatedAt, &unit.UpdatedAt); err != nil {

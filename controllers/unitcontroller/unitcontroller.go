@@ -1,12 +1,20 @@
 package unitcontroller
 
 import (
-	"go-web/entities"
-	"go-web/models/unitmodel"
+<<<<<<< HEAD
 	"html/template"
 	"net/http"
 	"strconv"
 	"time"
+=======
+	"html/template"
+	"net/http"
+>>>>>>> 6923ca4 (et
+
+	"go-web/entities"
+	"go-web/models/unitmodel"
+	"go-web/models/unitmodel"
+>>>>>>> 6923ca4 (et)
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
