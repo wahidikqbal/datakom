@@ -1,12 +1,14 @@
 package productcontroller
 
 import (
+	"net/http"
+	"text/template"
+
 	"go-web/models/categorymodel"
 	"go-web/models/pangkatmodel"
 	"go-web/models/productmodel"
+	"go-web/models/stockmodel"
 	"go-web/models/unitmodel"
-	"net/http"
-	"text/template"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -35,11 +37,13 @@ func Add(w http.ResponseWriter, r *http.Request) {
 		categories := categorymodel.GetAll()
 		pangkats := pangkatmodel.GetAll()
 		units := unitmodel.GetAll()
+		stocks := stockmodel.GetAll()
 
 		data := map[string]any{
 			"categories": categories,
 			"pangkats":   pangkats,
 			"units":      units,
+			"stocks":     stocks,
 		}
 
 		temp.Execute(w, data)
