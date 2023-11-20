@@ -24,6 +24,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Add(w http.ResponseWriter, r *http.Request) {
+
 	if r.Method == "GET" {
 		temp, err := template.ParseFiles("views/unit/create.html")
 		if err != nil {

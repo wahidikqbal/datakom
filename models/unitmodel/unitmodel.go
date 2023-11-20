@@ -29,7 +29,7 @@ func GetAll() []entities.Unit {
 }
 
 func Create(unit entities.Unit) bool {
-	result, err := config.DB.Exec(`INSERT INTO table units (name, created_at, updated_at), VALUE (?, ?, ?)`, unit.Name, unit.CreatedAt, unit.UpdatedAt)
+	result, err := config.DB.Exec(`INSERT INTO units (name, created_at, updated_at) VALUE (?, ?, ?)`, unit.Name, unit.CreatedAt, unit.UpdatedAt)
 	if err != nil {
 		panic(err)
 	}

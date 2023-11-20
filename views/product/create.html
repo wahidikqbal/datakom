@@ -44,10 +44,13 @@
                 <h2>Tambah Pengguna</h2>
                 <hr>
                 <form action="/products/add" method="POST">
+                  <!-- NAMA -->
                     <div class="mb-3">
                         <label class="form-label">Nama:</label>
                         <input type="text" class="form-control" name="name" autocomplete="off">
                     </div>
+
+                    <!-- PANGKAT -->
                     <div class="mb-3">
                       <label for="exampleFormControlSelect1">Pilih Pangkat:</label>
                         <select class="form-control">
@@ -56,6 +59,24 @@
                           {{ end}}
                         </select>
                     </div>
+
+                    <!-- NRP -->
+                    <div class="mb-3">
+                      <label class="form-label">NRP:</label>
+                      <input type="text" class="form-control" name="name" autocomplete="off">
+                    </div>
+
+                    <!-- KESATUAN -->
+                    <div class="mb-3">
+                      <label for="exampleFormControlSelect1">Pilih Kesatuan:</label>
+                        <select class="form-control">
+                          {{ range .units}}
+                          <option>{{ .Name }}</option>
+                          {{ end}}
+                        </select>
+                    </div>
+
+                    <!-- JENIS ALKOM -->
                     <div class="mb-3">
                       <label for="exampleFormControlSelect1">Pilih Jenis Alkom:</label>
                         <select class="form-control">
@@ -65,6 +86,8 @@
                           {{ end}}
                         </select>
                     </div>
+
+                    
                     <div class="float-end">
                         <a href="/products" class="btn btn-secondary">Back</a>
                         <button type="submit" class="btn btn-primary">Save</button>

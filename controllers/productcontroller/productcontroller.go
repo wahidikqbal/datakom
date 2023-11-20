@@ -4,6 +4,7 @@ import (
 	"go-web/models/categorymodel"
 	"go-web/models/pangkatmodel"
 	"go-web/models/productmodel"
+	"go-web/models/unitmodel"
 	"net/http"
 	"text/template"
 )
@@ -33,10 +34,12 @@ func Add(w http.ResponseWriter, r *http.Request) {
 
 		categories := categorymodel.GetAll()
 		pangkats := pangkatmodel.GetAll()
+		units := unitmodel.GetAll()
 
 		data := map[string]any{
 			"categories": categories,
 			"pangkats":   pangkats,
+			"units":      units,
 		}
 
 		temp.Execute(w, data)
