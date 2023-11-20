@@ -9,6 +9,7 @@ import (
 	"go-web/controllers/homecontroller"
 	"go-web/controllers/pangkatcontroller"
 	"go-web/controllers/productcontroller"
+	"go-web/controllers/stockcontroller"
 	"go-web/controllers/unitcontroller"
 )
 
@@ -40,6 +41,10 @@ func main() {
 	http.HandleFunc("/units/delete", unitcontroller.Delete)
 
 	//5. Stock
+	http.HandleFunc("/stocks", stockcontroller.Index)
+	http.HandleFunc("/stocks/add", stockcontroller.Add)
+	http.HandleFunc("/stocks/edit", stockcontroller.Edit)
+	http.HandleFunc("/stocks/delete", stockcontroller.Delete)
 
 	//connect database
 	config.ConnectDB()

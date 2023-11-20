@@ -40,9 +40,9 @@
 
 
     <div class="container mt-3">
-        <h2>Kategori Satuan Kerja</h2>
+        <h2>Kategori Stock</h2>
         <hr>
-        <a href="/units/add" class="btn btn-primary">Tambah Satuan</a>
+        <a href="/stocks/add" class="btn btn-primary">Tambah Satuan</a>
         <table class="table table-bordered mt-2 text-center">
             <thead>
                 <tr>
@@ -51,12 +51,12 @@
                 </tr>
             </thead>
             <tbody>
-                {{range .units}}
+                {{range .stocks}}
                 <tr>
                     <td> {{ .Name }} </td>
                     <td>
-                        <a href="/units/edit?id={{ .Id }}" class="btn btn-warning text-light">Edit</a>
-                        <a href="/units/delete?id={{ .Id }}"
+                        <a href="/stocks/edit?id={{ .Id }}" class="btn btn-warning text-light">Edit</a>
+                        <a href="/stocks/delete?id={{ .Id }}"
                         class="btn btn-danger text-light" 
                         onclick="return confirm('Apakah Anda ingin menghapus data Kategori ini?') ">Delete</a>
                     </td>
