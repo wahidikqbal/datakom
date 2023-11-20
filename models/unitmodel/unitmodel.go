@@ -69,6 +69,7 @@ func Update(id int, unit entities.Unit) bool {
 	return result > 0
 }
 
-func Delete() {
-
+func Delete(id int) error {
+	_, err := config.DB.Exec(`DELETE FROM units WHERE id = ?`, id)
+	return err
 }
