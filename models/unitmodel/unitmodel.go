@@ -40,4 +40,35 @@ func Create(unit entities.Unit) bool {
 	}
 
 	return lastinsertId > 0
+
+}
+
+func Detail(id int) entities.Unit {
+	row := config.DB.QueryRow(`SELECT id, name FROM units WHERE id = ?`, id)
+
+	var unit entities.Unit
+	if err := row.Scan(&unit.Id, &unit.Name); err != nil {
+		panic(err)
+	}
+
+	return unit
+
+}
+
+func Update(id int, unit entities.Unit) bool {
+	query, err := config.DB.Exec(`UPDATE units SET name = ?, updated_at = ? WHERE id = ?`, unit.Name, unit.UpdatedAt, id)
+	if err != nil {
+		panic(err)
+	}
+
+	result, err := query.RowsAffected()
+	if err != nil {
+		panic(err)
+	}
+
+	return result > 0
+}
+
+func Delete() {
+
 }

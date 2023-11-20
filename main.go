@@ -36,6 +36,7 @@ func main() {
 	//4. Unit
 	http.HandleFunc("/units", unitcontroller.Index)
 	http.HandleFunc("/units/add", unitcontroller.Add)
+	http.HandleFunc("/units/edit", unitcontroller.Edit)
 
 	//5. Stock
 
