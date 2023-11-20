@@ -9,6 +9,7 @@ import (
 	"go-web/controllers/homecontroller"
 	"go-web/controllers/pangkatcontroller"
 	"go-web/controllers/productcontroller"
+	"go-web/controllers/unitcontroller"
 )
 
 func main() {
@@ -32,7 +33,9 @@ func main() {
 	http.HandleFunc("/pangkats/edit", pangkatcontroller.Edit)
 	http.HandleFunc("/pangkats/delete", pangkatcontroller.Delete)
 
-	//4. Kesatuan
+	//4. Unit
+	http.HandleFunc("/units", unitcontroller.Index)
+	http.HandleFunc("/units/Add", unitcontroller.Add)
 
 	//5. Stock
 
