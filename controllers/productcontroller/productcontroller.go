@@ -2,6 +2,7 @@ package productcontroller
 
 import (
 	"net/http"
+	"strconv"
 	"text/template"
 	"time"
 
@@ -9,7 +10,6 @@ import (
 	"go-web/models/categorymodel"
 	"go-web/models/pangkatmodel"
 	"go-web/models/productmodel"
-	"go-web/models/stockmodel"
 	"go-web/models/unitmodel"
 )
 
@@ -39,13 +39,11 @@ func Add(w http.ResponseWriter, r *http.Request) {
 		categories := categorymodel.GetAll()
 		pangkats := pangkatmodel.GetAll()
 		units := unitmodel.GetAll()
-		stocks := stockmodel.GetAll()
 
 		data := map[string]any{
 			"categories": categories,
 			"pangkats":   pangkats,
 			"units":      units,
-			"stocks":     stocks,
 		}
 
 		temp.Execute(w, data)
@@ -55,33 +53,27 @@ func Add(w http.ResponseWriter, r *http.Request) {
 
 		var product entities.Product
 
-		// pangkat, err := strconv.Atoi(r.FormValue("pangkat_id"))
-		// if err != nil {
-		// 	panic(err)
-		// }
+		pangkat, err := strconv.Atoi(r.FormValue("pangkat_id"))
+		if err != nil {
+			panic(err)
+		}
 
-		// unit, err := strconv.Atoi(r.FormValue("unit_id"))
-		// if err != nil {
-		// 	panic(err)
-		// }
+		unit, err := strconv.Atoi(r.FormValue("unit_id"))
+		if err != nil {
+			panic(err)
+		}
 
-		// category, err := strconv.Atoi(r.FormValue("category_id"))
-		// if err != nil {
-		// 	panic(err)
-		// }
-
-		// stock, err := strconv.Atoi(r.FormValue("stock_id"))
-		// if err != nil {
-		// 	panic(err)
-		// }
+		category, err := strconv.Atoi(r.FormValue("category_id"))
+		if err != nil {
+			panic(err)
+		}
 
 		product.Name = r.FormValue("name")
-		// product.Pangkat.Id = uint(pangkat)
-		// product.Nrp = r.FormValue("nrp")
-		// product.Unit.Id = uint(unit)
-		// product.Category.Id = uint(category)
-		// product.Serialnumber = r.FormValue("serialnumber")
-		// product.Stock.Id = uint(stock)
+		product.Pangkat.Id = uint(pangkat)
+		product.Nrp = r.FormValue("nrp")
+		product.Unit.Id = uint(unit)
+		product.Category.Id = uint(category)
+		product.Serialnumber = r.FormValue("serialnumber")
 		product.CreatedAt = time.Now()
 		product.UpdatedAt = time.Now()
 

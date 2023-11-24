@@ -52,10 +52,10 @@
 
                     <!-- PANGKAT -->
                     <div class="mb-3">
-                      <label for="exampleFormControlSelect1">Pilih Pangkat:</label>
-                        <select class="form-control">
+                      <label>Pilih Pangkat:</label>
+                        <select class="form-control" name="pangkat_id">
                           {{ range .pangkats}}
-                          <option>{{ .Name }}</option>
+                          <option value="{{ .Id }}">{{ .Name }}</option>
                           {{ end}}
                         </select>
                     </div>
@@ -68,10 +68,10 @@
 
                     <!-- KESATUAN -->
                     <div class="mb-3">
-                      <label for="exampleFormControlSelect1">Pilih Kesatuan:</label>
-                        <select class="form-control">
+                      <label>Pilih Kesatuan:</label>
+                        <select class="form-control" name="unit_id">
                           {{ range .units}}
-                          <option>{{ .Name }}</option>
+                          <option value="{{ .Id }}">{{ .Name }}</option>
                           {{ end}}
                         </select>
                     </div>
@@ -79,10 +79,10 @@
                     <!-- JENIS ALKOM -->
                     <div class="mb-3">
                       <label for="exampleFormControlSelect1">Pilih Jenis Alkom:</label>
-                        <select class="form-control">
+                        <select class="form-control" name="category_id">
                           <!-- <option selected> Pilih Jenis Alkom </option> -->
                           {{ range .categories}}
-                          <option>{{ .Name }}</option>
+                          <option value="{{ .Id }}">{{ .Name }}</option>
                           {{ end}}
                         </select>
                     </div>
@@ -92,18 +92,7 @@
                       <label class="form-label">Serial Number:</label>
                       <input type="text" class="form-control" name="serialnumber" autocomplete="off">
                     </div>
-
-                    <!-- STOCK -->
-                    <div class="mb-3">
-                      <label for="exampleFormControlSelect1">Jumlah Alkom:</label>
-                        <select class="form-control">
-                          <!-- <option selected> Pilih Jenis Alkom </option> -->
-                          {{ range .stocks}}
-                          <option>{{ .Name }}</option>
-                          {{ end}}
-                        </select>
-                    </div>
-                    
+  
                     <div class="float-end">
                         <a href="/products" class="btn btn-secondary">Back</a>
                         <button type="submit" class="btn btn-primary">Save</button>
