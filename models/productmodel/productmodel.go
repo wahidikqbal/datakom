@@ -77,3 +77,42 @@ func Create(product entities.Product) bool {
 
 	return oke > 0
 }
+
+func Detail(id int) entities.Product {
+	row := config.DB.QueryRow(`
+	SELECT 
+	products.id, 
+	products.name,
+	pangkats.name as pangkat_name,
+	products.nrp,
+	units.name as unit_name,
+	categories.name as category_name,
+	products.serialnumber,
+	products.created_at, 
+	products.updated_at
+	FROM products
+	JOIN pangkats ON products.pangkat_id = pangkats.id
+	JOIN units ON products.unit_id = units.id
+	JOIN categories ON products.category_id = categories.id
+	WHERE products.id = ?
+	`, id)
+
+	var product entities.Product
+	err := row.Scan(
+		&product.Id,
+		&product.Name,
+		&product.Pangkat.Name,
+		&product.Nrp,
+		&product.Unit.Name,
+		&product.Category.Name,
+		&product.Serialnumber,
+		&product.CreatedAt,
+		&product.UpdatedAt,
+	)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return product
+}

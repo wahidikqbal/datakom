@@ -27,6 +27,9 @@ func main() {
 	//3. Product
 	http.HandleFunc("/products", productcontroller.Index)
 	http.HandleFunc("/products/add", productcontroller.Add)
+	http.HandleFunc("/products/detail", productcontroller.Detail)
+	// http.HandleFunc("/products/edit", productcontroller.Edit)
+	// http.HandleFunc("/products/delete", productcontroller.Delete)
 
 	//3. Pangkat
 	http.HandleFunc("/pangkats", pangkatcontroller.Index)
