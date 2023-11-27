@@ -44,11 +44,11 @@
                 <h2>Tambah Pengguna</h2>
                 <hr>
                 <form action="/products/edit" method="POST">
-                    <input type="hidden" name="id" value="{{ .product.Id }}">
+                    <input type="hidden" name="id" value="{{.product.Id}}">
                   <!-- NAMA -->
                     <div class="mb-3">
                         <label class="form-label">Nama:</label>
-                        <input type="text" class="form-control" name="name" autocomplete="off" value=" {{ .product.Name }}">
+                        <input type="text" class="form-control" name="name" autocomplete="off" value="{{.product.Name }}">
                     </div>
 
                     <!-- PANGKAT -->
@@ -56,7 +56,7 @@
                       <label>Pilih Pangkat:</label>
                         <select class="form-select" name="pangkat_id">
                           {{ range .pangkats}}
-                          <option value="{{ .Id }}" selected=" {{.Id}}">{{ .Name }}</option>
+                          <option value="{{.Id}}">{{.Name}}</option>
                           {{ end}}
                         </select>
                     </div>
@@ -64,7 +64,7 @@
                     <!-- NRP -->
                     <div class="mb-3">
                       <label class="form-label">NRP:</label>
-                      <input type="text" class="form-control" name="nrp" autocomplete="off" value="{{ .product.Nrp }}">
+                      <input type="text" class="form-control" name="nrp" autocomplete="off" value="{{.product.Nrp}}">
                     </div>
 
                     <!-- KESATUAN -->
@@ -72,7 +72,7 @@
                       <label>Pilih Kesatuan:</label>
                         <select class="form-control" name="unit_id">
                           {{ range .units}}
-                          <option value="{{ .Id }}">{{ .Name }}</option>
+                          <option value="{{.Id}}">{{.Name}}</option>
                           {{ end}}
                         </select>
                     </div>
@@ -83,7 +83,7 @@
                         <select class="form-control" name="category_id">
                           <!-- <option selected> Pilih Jenis Alkom </option> -->
                           {{ range .categories}}
-                          <option value="{{ .Id }}">{{ .Name }}</option>
+                          <option value="{{.Id}}">{{.Name}}</option>
                           {{ end}}
                         </select>
                     </div>
@@ -91,7 +91,7 @@
                      <!-- SERIAL -->
                      <div class="mb-3">
                       <label class="form-label">Serial Number:</label>
-                      <input type="text" class="form-control" name="serialnumber" autocomplete="off" value="{{ .product.Serialnumber}}">
+                      <input type="text" class="form-control" name="serialnumber" autocomplete="off" value="{{.product.Serialnumber}}">
                     </div>
   
                     <div class="float-end">
