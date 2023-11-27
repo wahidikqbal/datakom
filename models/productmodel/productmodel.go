@@ -116,3 +116,43 @@ func Detail(id int) entities.Product {
 
 	return product
 }
+
+func Update(id int, product entities.Product) bool {
+	query, err := config.DB.Exec(`
+		UPDATE products SET
+			name = ?,
+			pangkat_id = ?,
+			nrp = ?,
+			unit_id = ?,
+			category_id = ?,
+			serialnumber = ?,
+			updated_at = ?
+		WHERE id = ?
+		`,
+		product.Name,
+		product.Pangkat.Id,
+		product.Nrp,
+		product.Unit.Id,
+		product.Category.Id,
+		product.Serialnumber,
+		product.UpdatedAt,
+		id,
+	)
+
+	if err != nil {
+		panic(err)
+	}
+
+	result, err := query.RowsAffected()
+
+	if err != nil {
+		panic(err)
+	}
+
+	return result > 0
+}
+
+func Delete(id int) error {
+	_, err := config.DB.Exec(`DELETE FROM products WHERE id = ?`, id)
+	return err
+}
