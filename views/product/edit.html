@@ -55,6 +55,7 @@
                     <div class="mb-3">
                       <label>Pilih Pangkat:</label>
                         <select class="form-select" name="pangkat_id">
+                          <option value="{{.product.Pangkat.Id}}" >{{.product.Pangkat.Name}}</option>
                           {{ range .pangkats}}
                           <option value="{{.Id}}">{{.Name}}</option>
                           {{ end}}
@@ -71,6 +72,7 @@
                     <div class="mb-3">
                       <label>Pilih Kesatuan:</label>
                         <select class="form-control" name="unit_id">
+                          <option value="{{.product.Unit.Id}}" >{{.product.Unit.Name}}</option>
                           {{ range .units}}
                           <option value="{{.Id}}">{{.Name}}</option>
                           {{ end}}
@@ -82,6 +84,7 @@
                       <label>Pilih Jenis Alkom:</label>
                         <select class="form-control" name="category_id">
                           <!-- <option selected> Pilih Jenis Alkom </option> -->
+                          <option value="{{.product.Category.Id}}" >{{.product.Category.Name}}</option>
                           {{ range .categories}}
                           <option value="{{.Id}}">{{.Name}}</option>
                           {{ end}}
